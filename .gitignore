@@ -1,6 +1,6 @@
+# Env files
 .env
-
-
+.env.*.local
 
 # Logs
 logs
@@ -11,9 +11,14 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
+
+# Build output
 dist
 dist-ssr
+
+# Local config
 *.local
 
 # Editor directories and files
@@ -26,3 +31,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Test coverage
+coverage
+
+# Storybook output (if used)
+.storybook-out
