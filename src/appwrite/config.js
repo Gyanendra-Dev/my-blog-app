@@ -1,5 +1,5 @@
 import conf from '../conf/conf.js';
-import { Client, ID, Databases, Storage, Query } from "appwrite";
+import { Client, ID, Databases, Storage, Query, Permission, Role} from "appwrite";
 
 export class Service {
     client = new Client();
@@ -42,7 +42,12 @@ export class Service {
                     featuredImage, // ✅ fixed naming consistency
                     status,
                     userId,
-                }
+                },
+                [
+                Permission.read(Role.any()),
+                Permission.update(Role.user(userId)),
+                Permission.delete(Role.user(userId))
+            ]
             );
         } catch (error) {
             console.log("Appwrite service :: createPost :: error", error);
