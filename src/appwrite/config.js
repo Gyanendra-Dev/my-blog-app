@@ -122,9 +122,10 @@ export class Service {
     async uploadFile(file) {
         try {
             return await this.bucket.createFile(
-                conf.appwriteBucketId,
-                ID.unique(),
-                file
+        conf.appwriteBucketId,
+        ID.unique(),
+        file,
+        [Permission.read(Role.any())] 
             );
         } catch (error) {
             console.log("Appwrite service :: uploadFile :: error", error);
@@ -144,9 +145,9 @@ export class Service {
     }
 
     // 🔹 File Preview
-    getFilePreview(fileId) {
+    getFileView(fileId) {
         if (!fileId) return null; // ✅ Prevents error
-        return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
+        return this.bucket.getFileView(conf.appwriteBucketId, fileId);
     }
 }
 
