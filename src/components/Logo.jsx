@@ -31,7 +31,7 @@ function Logo({ width = "100px" }) {
   return (
     <div style={{ width }}>
       <img 
-        src="/images/vibe-diary-logo.png" 
+        src="/image/vibe-diary-logo.png" 
         alt="Vibe Diary Logo" 
         className="w-32 h-auto"
         onError={(e) => {
